@@ -6,10 +6,11 @@
 /*   By: pdelefos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 16:07:50 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/10 12:47:22 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/10 18:49:17 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <string.h>
 #include "fillit.h"
 
@@ -21,11 +22,25 @@ char	*ft_get_pieces(char *filename)
 	char	*pieces;
 
 	pieces = "";
+	ret = 1;
 	fd = open(filename, O_RDONLY);
-	while ((ret = read(fd, buf, 4096)))
+	while (ret)
 	{
-		buf[ret] = '\0';
-		pieces = ft_strjoin(pieces, buf);
+		ret = 0;
+		if ((ret = read(fd, buf, 20)))
+		{
+			buf[ret] = '\0';
+			if (ft_check_errors(buf))
+				return ("");
+			pieces = ft_strjoin(pieces, buf);
+		}
+		if ((ret = read(fd, buf, 1)))
+		{
+			buf[ret] = '\0';
+			if (*buf != '\n')
+				return ("");
+			pieces = ft_strjoin(pieces, buf);
+		}
 	}
 	close(fd);
 	return (pieces);

@@ -6,14 +6,14 @@
 #    By: fifiblop <fifiblop@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/06 22:46:28 by fifiblop          #+#    #+#              #
-#    Updated: 2015/12/10 14:42:21 by pdelefos         ###   ########.fr        #
+#    Updated: 2015/12/10 17:26:52 by pdelefos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 
 SRC_PATH = ./src/
-SRC_NAME = main.c ft_get_pieces.c
+SRC_NAME = main.c ft_get_pieces.c ft_check_errors.c
 
 OBJ_PATH = ./obj/
 OBJ_NAME = $(SRC_NAME:.c=.o)
