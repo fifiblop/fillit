@@ -26,7 +26,7 @@ typedef struct		s_list
 }					t_list;
 
 char				*ft_get_pieces(char *filename);
-int					ft_check_errors(char *str_piece);
+int					ft_check_1piece(char *str_piece);
 
 void				ft_putstr(char *str);
 void				ft_lst_pback(t_list **alst, void *cnt, size_t cnt_size);

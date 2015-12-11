@@ -30,7 +30,7 @@ char	*ft_get_pieces(char *filename)
 		if ((ret = read(fd, buf, 20)))
 		{
 			buf[ret] = '\0';
-			if (ft_check_errors(buf))
+			if (ft_check_1piece(buf))
 				return ("");
 			pieces = ft_strjoin(pieces, buf);
 		}

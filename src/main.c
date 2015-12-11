@@ -14,7 +14,7 @@
 
 int		main(int ac, char **av)
 {
-	if (ac == 2)
-		ft_putstr(ft_get_pieces(av[1]));
-	return (0);
+		if (ac == 2)
+				ft_putstr(ft_get_pieces(av[1]));
+		return (0);
 }
