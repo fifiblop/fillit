@@ -6,7 +6,7 @@
 /*   By: pdelefos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 16:07:50 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/10 18:49:17 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/11 14:28:12 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,3 +45,4 @@ char	*ft_get_pieces(char *filename)
 	close(fd);
 	return (pieces);
 }
+

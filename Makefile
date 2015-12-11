@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fifiblop <fifiblop@student.42.fr>          +#+  +:+       +#+         #
+#    By: pdelefos <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/12/06 22:46:28 by fifiblop          #+#    #+#              #
-#    Updated: 2015/12/10 17:26:52 by pdelefos         ###   ########.fr        #
+#    Created: 2015/12/10 20:38:32 by pdelefos          #+#    #+#              #
+#    Updated: 2015/12/11 11:03:11 by pdelefos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,6 @@ re: fclean all
 
 norme:
 	norminette $(SRC)
-	norminette $(INC_PATH)*.h
+	norminette $(INC_PATH)fillit.h
 
 .PHONY: all clean fclean re norme

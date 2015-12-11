@@ -6,7 +6,7 @@
 /*   By: pdelefos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 15:50:53 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/10 16:12:24 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/11 11:13:18 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 int		main(int ac, char **av)
 {
+	while (1)
+	{
 		if (ac == 2)
-				ft_putstr(ft_get_pieces(av[1]));
-		return (0);
+			ft_putstr(ft_get_pieces(av[1]));
+	}
+	return (0);
 }

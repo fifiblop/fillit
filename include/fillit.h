@@ -6,7 +6,7 @@
 /*   By: pdelefos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 17:13:46 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/10 17:34:00 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/11 14:23:01 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ int					ft_strlen(char *str);
 
 char				*ft_strdup(const char *s1);
 char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strcpy(char *dst, char *src);
 
 #endif
