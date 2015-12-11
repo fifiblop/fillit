@@ -6,7 +6,7 @@
 /*   By: pdelefos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 17:13:46 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/11 14:23:01 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/11 15:28:44 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct		s_list
 
 char				*ft_get_pieces(char *filename);
 int					ft_check_1piece(char *str_piece);
+t_list				*ft_pieces_to_list(char *str_pieces);
 
 void				ft_putstr(char *str);
 void				ft_lst_pback(t_list **alst, void *cnt, size_t cnt_size);
