@@ -13,7 +13,7 @@
 NAME = fillit
 
 SRC_PATH = ./src/
-SRC_NAME = main.c ft_get_pieces.c ft_check_errors.c
+SRC_NAME = main.c ft_get_pieces.c ft_check_errors.c ft_match_pieces.c
 
 OBJ_PATH = ./obj/
 OBJ_NAME = $(SRC_NAME:.c=.o)

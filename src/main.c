@@ -15,20 +15,15 @@
 int		main(int ac, char **av)
 {
 	char	*str_pieces;
-	/*t_list	*list;*/
-	int		i;
 
 	if (ac == 2)
 	{
-		i = 0;
 		str_pieces = ft_get_pieces(av[1]);
+		if (ft_check_last_nl(str_pieces))		
+				return (0);
+		ft_putnbr(ft_match_pieces(str_pieces));
+		ft_putchar('\n');
 		ft_putstr(str_pieces);
-		/*list = ft_pieces_to_list(str_pieces);*/
-		/*while (i < 4)*/
-		/*{*/
-		/*ft_putstr((char*)list->content);*/
-		/*i++;*/
-		/*}*/
 	}
 	return (0);
 }

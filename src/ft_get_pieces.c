@@ -26,56 +26,17 @@ char		*ft_get_pieces(char *filename)
 	while ((ret = read(fd, buf, 20)))
 	{
 		buf[ret] = '\0';
-		if (ft_check_1piece(buf))
+		if (ft_check_errors(buf))
 			return ("");
 		pieces = ft_strjoin(pieces, buf);
 		if ((ret = read(fd, buf, 1)))
 		{
 			buf[ret] = '\0';
-			if (*buf != '\n')
+			if (ft_check_nl(*buf))
 				return ("");
 			pieces = ft_strjoin(pieces, buf);
 		}
 	}
 	close(fd);
 	return (pieces);
-}
-
-static char	**ft_create_tab(char *str_pieces)
-{
-	char	**block;
-	int		size;
-	int		x;
-	int		y;
-
-	size = 4;
-	y = 0;
-	if (!(block = (char **)malloc(sizeof(char*) * size)))
-		return (NULL);
-	while (y < size)
-	{
-		x = 0;
-		if (!(block[y] = malloc(sizeof(char *) * size)))
-			return (NULL);
-		while (x <= size)
-		{
-			block[y][x++] = *str_pieces++;
-		}
-		y++;
-	}
-	return (block);
-}
-
-t_list		*ft_pieces_to_list(char *str_pieces)
-{
-	t_list	**list;
-	/*int		i;*/
-
-	list = NULL;
-	ft_create_tab(str_pieces);
-	/*ft_lst_pback(list, ft_create_tab(str_pieces), 0);*/
-	/*i = 0;*/
-	/*while (i++ < 21 && *str_pieces)*/
-	/*str_pieces++;*/
-	return (*list);
 }
