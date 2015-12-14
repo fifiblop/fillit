@@ -6,7 +6,7 @@
 /*   By: pdelefos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 17:13:46 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/14 10:03:10 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/14 16:49:03 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int					ft_check_errors(char *str_piece);
 int					ft_check_nl(char nl);
 int					ft_check_last_nl(char *str_pieces);
 int					ft_match_pieces(char *str_piece);
+char				**ft_get_tetri(void);
 
 void				ft_putstr(char *str);
 void				ft_lst_pback(t_list **alst, void *cnt, size_t cnt_size);

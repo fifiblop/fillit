@@ -1,87 +1,94 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_match_pieces.c                                  :+:      :+:    :+:   */
+/*   ft_stock_pieces.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdelefos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/14 10:02:24 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/14 15:59:02 by pdelefos         ###   ########.fr       */
+/*   Created: 2015/12/14 19:07:37 by pdelefos          #+#    #+#             */
+/*   Updated: 2015/12/14 19:35:14 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "fillit.h"
 
-char	**ft_get_tetri(void)
+char	**ft_get_tetri2(void)
 {
 	char	**tetri;
 
 	tetri = (char**)malloc(sizeof(char*) * 19);
 	tetri[0] = "###...#";
-	tetri[1] = "#...#..##";
+	tetri[1] = ".#...#..##";
 	tetri[2] = "#...###";
 	tetri[3] = "##..#...#";
 	tetri[4] = "###..#";
-	tetri[5] = "#..##...#";
-	tetri[6] = "#..###";
+	tetri[5] = ".#..##...#";
+	tetri[6] = ".#..###";
 	tetri[7] = "#...##..#";
 	tetri[8] = "###.#";
 	tetri[9] = "##...#...#";
-	tetri[10] = "#.###";
+	tetri[10] = "..#.###";
 	tetri[11] = "#...#...##";
-	tetri[12] = "##.##";
+	tetri[12] = ".##.##";
 	tetri[13] = "#...##...#";
 	tetri[14] = "##...##";
-	tetri[15] = "#..##..#";
+	tetri[15] = ".#..##..#";
 	tetri[16] = "#...#...#...#";
 	tetri[17] = "####";
 	tetri[18] = "##..##";
 	return (tetri);
 }
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+char	**ft_to_tab(char *piece)
 {
-	size_t	i;
-	size_t	j;
+	char	**tab;
+	int		i;
+	int		j;
+	int		k;
+	int		size;
 
 	i = 0;
-	j = 0;
-	while ((s1[i] || s2[i]) && i < n)
+	k = 0;
+	size = ft_strlen(piece);
+	tab = (char**)malloc(sizeof(char*) * 4);	
+	while (i < 4)
 	{
-		if (s1[j] == '\n')
-			j++;
-		if (s1[j] == s2[i])
+		j = 0;
+		tab[i] = (char*)malloc(sizeof(char) * 5);
+		while (j < 5)
 		{
-			i++;
-			j++;
+			if (j == 4)
+				tab[i][j++] = '\n';
+			else
+			{
+				if (k < size)
+					tab[i][j++] = piece[k++];
+				else
+					tab[i][j++] = '.';
+			}
 		}
-		else
-			return ((unsigned char)s1[j] - (unsigned char)s2[i]);
+		i++;
 	}
-	return (0);
+	return (tab);
 }
 
-int		ft_match_pieces(char *str_piece)
+int		main(void)
 {
-	int		j;
-	int		size;
+	char	**tab;
 	char	**tetri;
-	char	*str;
-	int		found;
+	int		i;
+	int		j;
 
-	tetri = ft_get_tetri();
-	str = str_piece;
-	found = 1;
-	while (*str != '#')
-		str++;
 	j = 0;
+	tetri = ft_get_tetri2();
 	while (j < 19)
 	{
-		size = ft_strlen(tetri[j]);
-		if (ft_strnequ(str, tetri[j], size) == 1)
-			found = 0;
-		j++;
+		i = 0;
+		tab = ft_to_tab(tetri[j++]);
+		while (i < 4)
+			ft_putstr(tab[i++]);
+		ft_putchar('\n');
 	}
-	return (found);
+	return (0);
 }
