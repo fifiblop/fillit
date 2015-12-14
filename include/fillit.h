@@ -6,7 +6,7 @@
 /*   By: pdelefos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 17:13:46 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/11 15:28:44 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/14 10:03:10 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct		s_list
 }					t_list;
 
 char				*ft_get_pieces(char *filename);
-int					ft_check_1piece(char *str_piece);
+int					ft_check_shape(char *str_piece);
 int					ft_check_errors(char *str_piece);
 int					ft_check_nl(char nl);
 int					ft_check_last_nl(char *str_pieces);
@@ -39,6 +39,7 @@ void				ft_putnbr(int n);
 void				ft_putchar(char c);
 
 int					ft_strlen(char *str);
+int					ft_strnequ(char const *s1, char const *s2, size_t n);
 
 char				*ft_strdup(const char *s1);
 char				*ft_strjoin(char const *s1, char const *s2);
