@@ -6,7 +6,7 @@
 /*   By: pdelefos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 19:07:37 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/15 19:07:46 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/15 22:19:15 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,24 +74,50 @@ int			ft_count_pieces(char *str_pieces)
 }
 
 void	ft_print_tab(char **tab, int size)
-{
-	int i;
-
+{ 
+  	int i;
+ 
 	i = 0;
 	while (i < size)
 		ft_putendl(tab[i++]);
 }
 
-void	ft_lst_pbacki(t_list *alst, void *cnt, size_t cnt_size)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	if (!alst)
-		alst = ft_lstnew(cnt, cnt_size);
-	else
+	t_list	*node;
+
+	node = (t_list*)malloc(sizeof(t_list));
+	if (node)
+	{
+		if (content == NULL)
+		{
+			node->content = NULL;
+			node->content_size = 0;
+		}
+		else
+		{
+			node->content = (void*)malloc(content_size);
+			if (node->content == NULL)
+				return (NULL);
+			ft_putendl("hello");
+			node->content = (void*)content;
+			node->content_size = content_size;
+		}
+		node->next = NULL;
+	}
+	return (node);
+}
+
+void	ft_lst_pback(t_list *alst, void *cnt, size_t cnt_size)
+{
+	if (alst != NULL)
 	{
 		while (alst->next)
 			alst = alst->next;
 		alst->next = ft_lstnew(cnt, cnt_size);
 	}
+	else
+		alst = ft_lstnew(cnt, cnt_size);
 }
 
 t_list		*ft_stock_pieces(char *str_pieces)
@@ -111,7 +137,7 @@ t_list		*ft_stock_pieces(char *str_pieces)
 	{
 		piece = ft_strsub(str_pieces, 0, 20);
 		tmp = ft_to_tab(tetri[ft_get_pattern(piece)]);
-		ft_lst_pbacki(list, tmp, 4);
+		ft_lst_pback(list, tmp, 4);
 		free(piece);
 		free(tmp);
 		str_pieces += 21;
