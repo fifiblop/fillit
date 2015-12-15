@@ -6,7 +6,7 @@
 /*   By: pdelefos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 10:02:24 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/14 15:59:02 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/15 16:23:51 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,33 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 	return (0);
 }
 
-int		ft_match_pieces(char *str_piece)
+int		ft_get_pattern(char *str_piece)
 {
 	int		j;
+	int		size;
+	char	**tetri;
+	char	*str;
+	int		found;
+
+	tetri = ft_get_tetri();
+	str = str_piece;
+	found = -1;
+	while (*str != '#')
+		str++;
+	j = 0;
+	while (j < 19)
+	{
+		size = ft_strlen(tetri[j]);
+		if (ft_strnequ(str, tetri[j], size) == 1)
+			found = j;
+		j++;
+	}
+	return (found);
+}
+
+int		ft_match_pieces(char *str_piece)
+{
+  	int		j;
 	int		size;
 	char	**tetri;
 	char	*str;

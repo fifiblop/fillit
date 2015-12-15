@@ -6,7 +6,7 @@
 /*   By: pdelefos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 19:07:37 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/14 19:35:14 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/15 19:07:46 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,44 +51,71 @@ char	**ft_to_tab(char *piece)
 	i = 0;
 	k = 0;
 	size = ft_strlen(piece);
-	tab = (char**)malloc(sizeof(char*) * 4);	
+	tab = (char**)malloc(sizeof(char*) * 4);
 	while (i < 4)
 	{
 		j = 0;
-		tab[i] = (char*)malloc(sizeof(char) * 5);
-		while (j < 5)
+		tab[i] = (char*)malloc(sizeof(char) * 4);
+		while (j < 4)
 		{
-			if (j == 4)
-				tab[i][j++] = '\n';
+			if (k < size)
+				tab[i][j++] = piece[k++];
 			else
-			{
-				if (k < size)
-					tab[i][j++] = piece[k++];
-				else
-					tab[i][j++] = '.';
-			}
+				tab[i][j++] = '.';
 		}
 		i++;
 	}
 	return (tab);
 }
 
-int		main(void)
+int			ft_count_pieces(char *str_pieces)
 {
-	char	**tab;
-	char	**tetri;
-	int		i;
-	int		j;
+	return ((ft_strlen(str_pieces) + 1) / 21);
+}
 
-	j = 0;
-	tetri = ft_get_tetri2();
-	while (j < 19)
+void	ft_print_tab(char **tab, int size)
+{
+	int i;
+
+	i = 0;
+	while (i < size)
+		ft_putendl(tab[i++]);
+}
+
+void	ft_lst_pbacki(t_list *alst, void *cnt, size_t cnt_size)
+{
+	if (!alst)
+		alst = ft_lstnew(cnt, cnt_size);
+	else
 	{
-		i = 0;
-		tab = ft_to_tab(tetri[j++]);
-		while (i < 4)
-			ft_putstr(tab[i++]);
-		ft_putchar('\n');
+		while (alst->next)
+			alst = alst->next;
+		alst->next = ft_lstnew(cnt, cnt_size);
 	}
-	return (0);
+}
+
+t_list		*ft_stock_pieces(char *str_pieces)
+{
+	int		nb_pieces;
+	t_list	*list;
+	int		i;
+	char	*piece;
+	char	**tetri;
+	char	**tmp;
+
+	list = NULL;
+	i = 0;
+	tetri = ft_get_tetri2();
+	nb_pieces = ft_count_pieces(str_pieces);
+	while (i < nb_pieces)
+	{
+		piece = ft_strsub(str_pieces, 0, 20);
+		tmp = ft_to_tab(tetri[ft_get_pattern(piece)]);
+		ft_lst_pbacki(list, tmp, 4);
+		free(piece);
+		free(tmp);
+		str_pieces += 21;
+		i++;
+	}
+	return (list);
 }

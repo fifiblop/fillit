@@ -6,7 +6,7 @@
 /*   By: pdelefos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 19:07:07 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/14 10:25:57 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/15 11:17:53 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ char		*ft_get_pieces(char *filename)
 	char	*pieces;
 
 	pieces = "";
-	ret = 1;
+	ret = 0;
 	fd = open(filename, O_RDONLY);
 	while ((ret = read(fd, buf, 20)))
 	{
 		buf[ret] = '\0';
 		if (ft_check_errors(buf))
-			return("");
+			return ("");
 		pieces = ft_strjoin(pieces, buf);
 		if ((ret = read(fd, buf, 1)))
 		{
