@@ -6,7 +6,7 @@
 /*   By: pdelefos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 19:07:37 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/16 17:35:41 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/16 18:22:29 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ char	***ft_stock_pieces(char *str_pieces)
 	tab = (char***)malloc(sizeof(char**) * nb_pieces);
 	while (i < nb_pieces)
 	{
-		piece = ft_strsub(str_pieces, 0, ft_strlen(str_pieces));
+		piece = ft_strsub(str_pieces, 0, 20);
 		tab[i++] = ft_to_tab(tetri[ft_get_pattern(piece)]);
 		free(piece);
 		str_pieces += 21;

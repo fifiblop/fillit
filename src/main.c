@@ -6,7 +6,7 @@
 /*   By: pdelefos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 15:50:53 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/16 17:29:20 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/16 18:33:51 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int		main(int ac, char **av)
 {
 	char	*str_pieces;
 	char	***tab;
+	int		size;
 
 	if (ac == 2)
 	{
@@ -23,10 +24,9 @@ int		main(int ac, char **av)
 		if (ft_check_last_nl(str_pieces))
 			return (0);
 		tab = ft_stock_pieces(str_pieces);
-		ft_print_tab(tab[0], 4);
-		ft_print_tab(tab[1], 4);
-		ft_print_tab(tab[2], 4);
-		ft_print_tab(tab[3], 4);
+		size = ft_count_pieces(str_pieces);
+		while (size--)
+			ft_print_tab(*tab++, 4);
 	}
 	return (0);
 }
