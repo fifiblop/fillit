@@ -6,7 +6,7 @@
 /*   By: pdelefos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 10:02:24 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/15 16:23:51 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/16 17:33:56 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int		ft_get_pattern(char *str_piece)
 
 int		ft_match_pieces(char *str_piece)
 {
-  	int		j;
+	int		j;
 	int		size;
 	char	**tetri;
 	char	*str;

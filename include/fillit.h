@@ -6,7 +6,7 @@
 /*   By: pdelefos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 17:13:46 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/15 22:17:41 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/16 16:55:07 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-t_list				*ft_stock_pieces(char *str_pieces);
+char				***ft_stock_pieces(char *str_pieces);
 char				*ft_get_pieces(char *filename);
 char				**ft_get_tetri(void);
 int					ft_check_shape(char *str_piece);
