@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stock_pieces.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdelefos <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 19:07:37 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/16 18:22:29 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/17 20:10:39 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,54 +18,27 @@ char	**ft_get_tetri2(void)
 	char	**tetri;
 
 	tetri = (char**)malloc(sizeof(char*) * 19);
-	tetri[0] = "###...#";
-	tetri[1] = ".#...#..##";
-	tetri[2] = "#...###";
-	tetri[3] = "##..#...#";
-	tetri[4] = "###..#";
-	tetri[5] = ".#..##...#";
-	tetri[6] = ".#..###";
-	tetri[7] = "#...##..#";
-	tetri[8] = "###.#";
-	tetri[9] = "##...#...#";
-	tetri[10] = "..#.###";
-	tetri[11] = "#...#...##";
-	tetri[12] = ".##.##";
-	tetri[13] = "#...##...#";
-	tetri[14] = "##...##";
-	tetri[15] = ".#..##..#";
-	tetri[16] = "#...#...#...#";
-	tetri[17] = "####";
-	tetri[18] = "##..##";
+	tetri[0] = "00102021";
+	tetri[1] = "10111202";
+	tetri[2] = "00011121";
+	tetri[3] = "00100102";
+	tetri[4] = "00102011";
+	tetri[5] = "10011112";
+	tetri[6] = "10011121";
+	tetri[7] = "00011102";
+	tetri[8] = "00102001";
+	tetri[9] = "00101112";
+	tetri[10] = "20101112";
+	tetri[11] = "00010212";
+	tetri[12] = "10200111";
+	tetri[13] = "00011112";
+	tetri[14] = "00101121";
+	tetri[15] = "10011102";
+	tetri[16] = "00010203";
+	tetri[17] = "00102030";
+	tetri[18] = "00100111";
+
 	return (tetri);
-}
-
-char	**ft_to_tab(char *piece)
-{
-	char	**tab;
-	int		i;
-	int		j;
-	int		k;
-	int		size;
-
-	i = 0;
-	k = 0;
-	size = ft_strlen(piece);
-	tab = (char**)malloc(sizeof(char*) * 4);
-	while (i < 4)
-	{
-		j = 0;
-		tab[i] = (char*)malloc(sizeof(char) * 4);
-		while (j < 4)
-		{
-			if (k < size)
-				tab[i][j++] = piece[k++];
-			else
-				tab[i][j++] = '.';
-		}
-		i++;
-	}
-	return (tab);
 }
 
 int		ft_count_pieces(char *str_pieces)
@@ -82,23 +55,30 @@ void	ft_print_tab(char **tab, int size)
 		ft_putendl(tab[i++]);
 }
 
-char	***ft_stock_pieces(char *str_pieces)
+t_piece	*ft_stock_pieces(char *str_pieces)
 {
 	int		i;
 	int		nb_pieces;
-	char	***tab;
+	t_piece	*tab;
+	t_piece	piece;
 	char	**tetri;
-	char	*piece;
 
 	i = 0;
 	nb_pieces = ft_count_pieces(str_pieces);
 	tetri = ft_get_tetri2();
-	tab = (char***)malloc(sizeof(char**) * nb_pieces);
+	tab = (t_piece*)malloc(sizeof(t_piece) * nb_pieces);
 	while (i < nb_pieces)
 	{
-		piece = ft_strsub(str_pieces, 0, 20);
-		tab[i++] = ft_to_tab(tetri[ft_get_pattern(piece)]);
-		free(piece);
+		// atoi recoi une chaine et on lui envoi un char
+		// piece.b1.x = ft_atoi(tetri[ft_get_pattern(str_pieces)][0]);
+		// piece.b1.y = ft_atoi(tetri[ft_get_pattern(str_pieces)][1]);
+		// piece.b2.x = ft_atoi(tetri[ft_get_pattern(str_pieces)][2]);
+		// piece.b2.y = ft_atoi(tetri[ft_get_pattern(str_pieces)][3]);
+		// piece.b3.x = ft_atoi(tetri[ft_get_pattern(str_pieces)][4]);
+		// piece.b3.y = ft_atoi(tetri[ft_get_pattern(str_pieces)][5]);
+		// piece.b4.x = ft_atoi(tetri[ft_get_pattern(str_pieces)][6]);
+		// piece.b4.y = ft_atoi(tetri[ft_get_pattern(str_pieces)][7]);
+		tab[i++] = piece;
 		str_pieces += 21;
 	}
 	return (tab);

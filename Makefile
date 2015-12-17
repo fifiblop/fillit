@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pdelefos <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/11 14:51:11 by pdelefos          #+#    #+#              #
-#    Updated: 2015/12/15 11:13:50 by pdelefos         ###   ########.fr        #
+#    Updated: 2015/12/17 13:53:38 by pdelefos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = fillit
 
 SRC_PATH = ./src/
 SRC_NAME = main.c ft_get_pieces.c ft_check_errors.c ft_match_pieces.c \
-		   ft_stock_pieces.c
+		   ft_stock_pieces.c ft_resolve.c
 
 OBJ_PATH = ./obj/
 OBJ_NAME = $(SRC_NAME:.c=.o)
