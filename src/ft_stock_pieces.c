@@ -6,7 +6,7 @@
 /*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 19:07:37 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/17 20:10:39 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/18 13:07:09 by eplumeco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,13 @@ void	ft_print_tab(char **tab, int size)
 		ft_putendl(tab[i++]);
 }
 
+static int		ft_ctoi(char c)
+{
+	if (c >= '0' && c <= '9')
+		c -= 48;
+	return (c);
+}
+
 t_piece	*ft_stock_pieces(char *str_pieces)
 {
 	int		i;
@@ -69,17 +76,17 @@ t_piece	*ft_stock_pieces(char *str_pieces)
 	tab = (t_piece*)malloc(sizeof(t_piece) * nb_pieces);
 	while (i < nb_pieces)
 	{
-		// atoi recoi une chaine et on lui envoi un char
-		// piece.b1.x = ft_atoi(tetri[ft_get_pattern(str_pieces)][0]);
-		// piece.b1.y = ft_atoi(tetri[ft_get_pattern(str_pieces)][1]);
-		// piece.b2.x = ft_atoi(tetri[ft_get_pattern(str_pieces)][2]);
-		// piece.b2.y = ft_atoi(tetri[ft_get_pattern(str_pieces)][3]);
-		// piece.b3.x = ft_atoi(tetri[ft_get_pattern(str_pieces)][4]);
-		// piece.b3.y = ft_atoi(tetri[ft_get_pattern(str_pieces)][5]);
-		// piece.b4.x = ft_atoi(tetri[ft_get_pattern(str_pieces)][6]);
-		// piece.b4.y = ft_atoi(tetri[ft_get_pattern(str_pieces)][7]);
+		piece.b1.x = ft_ctoi(tetri[ft_get_pattern(str_pieces)][0]);
+		piece.b1.y = ft_ctoi(tetri[ft_get_pattern(str_pieces)][1]);
+		piece.b2.x = ft_ctoi(tetri[ft_get_pattern(str_pieces)][2]);
+		piece.b2.y = ft_ctoi(tetri[ft_get_pattern(str_pieces)][3]);
+		piece.b3.x = ft_ctoi(tetri[ft_get_pattern(str_pieces)][4]);
+		piece.b3.y = ft_ctoi(tetri[ft_get_pattern(str_pieces)][5]);
+		piece.b4.x = ft_ctoi(tetri[ft_get_pattern(str_pieces)][6]);
+		piece.b4.y = ft_ctoi(tetri[ft_get_pattern(str_pieces)][7]);
 		tab[i++] = piece;
 		str_pieces += 21;
 	}
 	return (tab);
 }
+
