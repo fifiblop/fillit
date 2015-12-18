@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fifiblop <fifiblop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 17:13:46 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/17 19:32:58 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/18 22:26:51 by fifiblop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct		s_piece
 	t_pos			b4;
 }					t_piece;
 
+void				ft_ft(t_piece *pieces);
 t_piece				*ft_stock_pieces(char *str_pieces);
 char				*ft_get_pieces(char *filename);
 char				**ft_get_tetri(void);
