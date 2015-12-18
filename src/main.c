@@ -6,7 +6,7 @@
 /*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 15:50:53 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/18 18:13:20 by eplumeco         ###   ########.fr       */
+/*   Updated: 2015/12/18 19:01:47 by eplumeco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		main(int ac, char **av)
 			return (0);
 		tab = ft_stock_pieces(str_pieces);
 		grid = ft_resolve(tab);
-		ft_print_tab(grid,4);
+		ft_print_tab(grid, 4);
 	}
 	return (0);
 }
