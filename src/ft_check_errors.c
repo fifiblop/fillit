@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_errors.c                                        :+:      :+:    :+:   */
+/*   ft_check_errors.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdelefos <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 11:04:32 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/14 10:15:29 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/19 12:46:13 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int		ft_check_nl(char nl)
 {
 	if (nl != '\n')
 	{
-		ft_putstr("error\n");
+		ft_putendl("error");
 		return (1);
 	}
 	return (0);
@@ -61,7 +61,7 @@ int		ft_check_last_nl(char *str_pieces)
 	size = ft_strlen(str_pieces) - 1;
 	if (str_pieces[size] == '\n' && str_pieces[size - 1] == '\n')
 	{
-		ft_putstr("error\n");
+		ft_putendl("error");
 		return (1);
 	}
 	return (0);
@@ -72,7 +72,7 @@ int		ft_check_errors(char *str_piece)
 	if (ft_check_shape(str_piece) || ft_check_nb_hash(str_piece) ||
 		ft_match_pieces(str_piece))
 	{
-		ft_putstr("error\n");
+		ft_putendl("error");
 		return (1);
 	}
 	return (0);

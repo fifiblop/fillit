@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fifiblop <fifiblop@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 15:50:53 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/18 22:26:59 by fifiblop         ###   ########.fr       */
+/*   Updated: 2015/12/19 12:46:38 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		main(int ac, char **av)
 {
 	char	*str_pieces;
 	t_piece	*tab;
-	// char	**grid;
+	char	**grid;
 
 	if (ac == 2)
 	{
@@ -24,8 +24,9 @@ int		main(int ac, char **av)
 		if (ft_check_last_nl(str_pieces))
 			return (0);
 		tab = ft_stock_pieces(str_pieces);
-		// grid = ft_resolve(tab);
-		ft_ft(tab);
+		grid = ft_resolve(tab);
 	}
+	else
+		ft_putendl("error");
 	return (0);
 }

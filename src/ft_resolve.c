@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_resolve.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fifiblop <fifiblop@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 10:52:19 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/18 22:28:52 by fifiblop         ###   ########.fr       */
+/*   Updated: 2015/12/19 13:50:43 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@ char	**ft_make_grid(int size)
 	i = 0;
 	while (i < size)
 	{
-		tab[i] = (char*)malloc(sizeof(char) * size);
+		tab[i] = (char*)malloc(sizeof(char) * (size + 1));
 		j = 0;
 		while (j < size)
 			tab[i][j++] = '.';
+		tab[i][j] = '\0';
 		i++;
 	}
 	return (tab);
@@ -63,6 +64,7 @@ char	**ft_resolve(t_piece *pieces)
 	int		x;
 	int		y;
 
+	(void)pieces;
 	letter = 'A';
 	x = 0;
 	i = 0;
@@ -90,25 +92,4 @@ char	**ft_resolve(t_piece *pieces)
 		x++;
 	}
 	return (grid);
-}
-
-void	ft_ft(t_piece *pieces)
-{
-	char	**grid;
-	int		size;
-	int		i;
-
-	size = 4;
-	i = 0;
-	while (i < 19)
-	{
-		grid = ft_make_grid(size);
-		grid[pieces[i].b1.y][pieces[i].b1.x] = '#';
-		grid[pieces[i].b2.y][pieces[i].b2.x] = '#';
-		grid[pieces[i].b3.y][pieces[i].b3.x] = '#';
-		grid[pieces[i].b4.y][pieces[i].b4.x] = '#';
-		ft_print_tab(grid, size);
-		ft_putchar('\n');
-		i++;
-	}
 }

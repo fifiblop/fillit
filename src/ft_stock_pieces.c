@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stock_pieces.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fifiblop <fifiblop@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 19:07:37 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/18 23:01:09 by fifiblop         ###   ########.fr       */
+/*   Updated: 2015/12/19 11:59:22 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "fillit.h"
 
-char	**ft_get_tetri2(void)
+char		**ft_get_tetri2(void)
 {
 	char	**tetri;
 
@@ -37,16 +37,15 @@ char	**ft_get_tetri2(void)
 	tetri[16] = "00010203";
 	tetri[17] = "00102030";
 	tetri[18] = "00100111";
-
 	return (tetri);
 }
 
-int		ft_count_pieces(char *str_pieces)
+int			ft_count_pieces(char *str_pieces)
 {
 	return ((ft_strlen(str_pieces) + 1) / 21);
 }
 
-void	ft_print_tab(char **tab, int size)
+void		ft_print_tab(char **tab, int size)
 {
 	int i;
 
@@ -55,14 +54,14 @@ void	ft_print_tab(char **tab, int size)
 		ft_putendl(tab[i++]);
 }
 
-static int		ft_ctoi(char c)
+static int	ft_ctoi(char c)
 {
 	if (c >= '0' && c <= '9')
 		c -= 48;
 	return (c);
 }
 
-t_piece	*ft_stock_pieces(char *str_pieces)
+t_piece		*ft_stock_pieces(char *str_pieces)
 {
 	int		i;
 	int		nb_pieces;
@@ -89,4 +88,3 @@ t_piece	*ft_stock_pieces(char *str_pieces)
 	}
 	return (tab);
 }
-
