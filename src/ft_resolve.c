@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_resolve.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fifiblop <fifiblop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 10:52:19 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/19 16:35:38 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/19 18:55:13 by fifiblop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,7 @@ int		ft_recursive(char **grid, int *tab, char letter, t_piece *piece)
 		piece++;
 		ft_recursive(grid, tab, letter, piece);
 	}
+
 	if (tab[0] < size)
 	{
 		tab[0] += 1;
@@ -151,7 +152,7 @@ char	**ft_all(t_piece *pieces)
 	tab[1] = 0;
 	tab[2] = 2;
 	letter = 'A';
-	grid = ft_make_grid(4);
+	grid = ft_make_grid(3);
 	ft_recursive(grid, tab, letter, pieces);
 	// ft_print_tab(grid, 4);
 	return (grid);
