@@ -6,7 +6,7 @@
 /*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 19:07:37 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/19 11:59:22 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/21 21:30:16 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,14 @@ int			ft_count_pieces(char *str_pieces)
 	return ((ft_strlen(str_pieces) + 1) / 21);
 }
 
-void		ft_print_tab(char **tab, int size)
+void		ft_print_grid(char **tab)
 {
 	int i;
+	int	nb;
 
 	i = 0;
-	while (i < size)
+	nb = ft_get_gridsize(tab);
+	while (i < nb)
 		ft_putendl(tab[i++]);
 }
 
@@ -61,20 +63,21 @@ static int	ft_ctoi(char c)
 	return (c);
 }
 
-t_piece		*ft_stock_pieces(char *str_pieces)
+t_piece		*ft_stock_pieces(char *str_pieces, int nb_pieces)
 {
 	int		i;
-	int		nb_pieces;
 	t_piece	*tab;
 	t_piece	piece;
 	char	**tetri;
+	int		nb;
 
 	i = 0;
-	nb_pieces = ft_count_pieces(str_pieces);
+	nb = 1;
 	tetri = ft_get_tetri2();
 	tab = (t_piece*)malloc(sizeof(t_piece) * nb_pieces);
 	while (i < nb_pieces)
 	{
+		piece.id = nb++;
 		piece.b1.x = ft_ctoi(tetri[ft_get_pattern(str_pieces)][0]);
 		piece.b1.y = ft_ctoi(tetri[ft_get_pattern(str_pieces)][1]);
 		piece.b2.x = ft_ctoi(tetri[ft_get_pattern(str_pieces)][2]);

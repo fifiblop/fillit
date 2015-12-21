@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_resolve.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fifiblop <fifiblop@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 10:52:19 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/19 18:55:13 by fifiblop         ###   ########.fr       */
+/*   Updated: 2015/12/21 22:23:51 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,105 +55,66 @@ int		ft_test_coord(int size, int x, int y, t_piece piece)
 		return (0);
 }
 
-char	**ft_resolve(t_piece *pieces)
-{
-	char	**grid;
-	char	letter;
-	int		i;
-	int		size;
-	int		x;
-	int		y;
-
-	(void)pieces;
-	letter = 'A';
-	x = 0;
-	i = 0;
-	size = 4;
-	grid = ft_make_grid(size);
-	while (x < size)
-	{
-		y = 0;
-		while (y < size)
-		{
-			if (ft_test_coord(size, x, y, pieces[i]) && 
-				ft_test_piece(grid, x, y, pieces[i]))
-			{
-				grid[pieces[i].b1.y + y][pieces[i].b1.x + x] = letter;
-				grid[pieces[i].b2.y + y][pieces[i].b2.x + x] = letter;
-				grid[pieces[i].b3.y + y][pieces[i].b3.x + x] = letter;
-				grid[pieces[i].b4.y + y][pieces[i].b4.x + x] = letter;
-				letter++;
-				i++;
-				ft_print_tab(grid, size);
-				ft_putchar('\n');
-			}
-			y++;
-		}
-		x++;
-	}
-	return (grid);
-}
-
 int		ft_get_gridsize(char **grid)
 {
 	return (ft_strlen(grid[0]));
 }
 
-void	ft_put_piece(char **grid, int *tab, char letter, t_piece piece)
+void	ft_rm_piece(char **grid, int x, int y, t_piece piece)
 {
-	grid[piece.b1.y + tab[1]][piece.b1.x + tab[0]] = letter;
-	grid[piece.b2.y + tab[1]][piece.b2.x + tab[0]] = letter;
-	grid[piece.b3.y + tab[1]][piece.b3.x + tab[0]] = letter;
-	grid[piece.b4.y + tab[1]][piece.b4.x + tab[0]] = letter;
+	grid[piece.b1.y + y][piece.b1.x + x] = '.';
+	grid[piece.b2.y + y][piece.b2.x + x] = '.';
+	grid[piece.b3.y + y][piece.b3.x + x] = '.';
+	grid[piece.b4.y + y][piece.b4.x + x] = '.';
 }
 
-int		ft_recursive(char **grid, int *tab, char letter, t_piece *piece)
+int		ft_resolve(char **grid, char letter, t_piece *piece, int nb_pieces)
 {
 	int		size;
+	int		x;
+	int		y;
 
 	size = ft_get_gridsize(grid);
-	if (tab[0] == size && tab[1] == size)
-		return (0);
-	if (ft_test_coord(size, tab[0], tab[1], *piece) && 
-		ft_test_piece(grid, tab[0], tab[1], *piece))
+	x = 0;
+	while (x < size)
 	{
-		ft_put_piece(grid, tab, letter, *piece);
-		ft_print_tab(grid, size);
-		ft_putchar('\n');
-		tab[0] = 0;
-		tab[1] = 0;
-		tab[2] -= 1;
-		letter++;
-		piece++;
-		ft_recursive(grid, tab, letter, piece);
+		y = 0;
+		while (y < size)
+		{
+			if (ft_test_coord(size, x, y, *piece) &&
+				ft_test_piece(grid, x, y, *piece))
+			{
+				grid[piece->b1.y + y][piece->b1.x + x] = letter;
+				grid[piece->b2.y + y][piece->b2.x + x] = letter;
+				grid[piece->b3.y + y][piece->b3.x + x] = letter;
+				grid[piece->b4.y + y][piece->b4.x + x] = letter;
+				ft_print_grid(grid);
+				ft_putchar('\n');
+				if (piece->id == nb_pieces)
+					return (1);	
+				if (ft_resolve(grid, letter + 1, piece + 1, nb_pieces))
+					return (1);
+				else
+					ft_rm_piece(grid, x, y, *piece);
+			}
+			y++;
+		}
+		x++;
 	}
-
-	if (tab[0] < size)
-	{
-		tab[0] += 1;
-		ft_recursive(grid, tab, letter, piece);
-	}
-	else if (tab[1] < size)
-	{
-		tab[0] = 0;
-		tab[1] += 1;
-		ft_recursive(grid, tab, letter, piece);
-	}
-	return (1);
+	return (0);
 }
 
-char	**ft_all(t_piece *pieces)
+char	**ft_all(t_piece *pieces, int	nb_pieces)
 {
-	int		tab[3];
 	char	letter;
 	char	**grid;
+	int		size;
 
-	tab[0] = 0;
-	tab[1] = 0;
-	tab[2] = 2;
 	letter = 'A';
-	grid = ft_make_grid(3);
-	ft_recursive(grid, tab, letter, pieces);
-	// ft_print_tab(grid, 4);
+	size = 2;
+	grid = ft_make_grid(size);
+	while (ft_resolve(grid, letter, pieces, nb_pieces) != 1)
+		grid = ft_make_grid(++size);
+	ft_print_grid(grid);
 	return (grid);
 }
