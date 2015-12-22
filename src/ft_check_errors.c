@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_errors.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fifiblop <fifiblop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 11:04:32 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/19 12:46:13 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/22 15:49:58 by fifiblop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,16 @@ int		ft_check_nb_hash(char *str_piece)
 		return (1);
 	else
 		return (0);
+}
+
+int		ft_isempty(char *str_pieces)
+{
+	if (ft_strcmp(str_pieces, "") == 0)
+	{
+		ft_putendl("error");
+		return (1);
+	}
+	return (0);
 }
 
 int		ft_check_nl(char nl)

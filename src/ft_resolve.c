@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_resolve.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fifiblop <fifiblop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 10:52:19 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/21 22:23:51 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/22 15:51:27 by fifiblop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,6 @@ int		ft_resolve(char **grid, char letter, t_piece *piece, int nb_pieces)
 				grid[piece->b2.y + y][piece->b2.x + x] = letter;
 				grid[piece->b3.y + y][piece->b3.x + x] = letter;
 				grid[piece->b4.y + y][piece->b4.x + x] = letter;
-				ft_print_grid(grid);
-				ft_putchar('\n');
 				if (piece->id == nb_pieces)
 					return (1);	
 				if (ft_resolve(grid, letter + 1, piece + 1, nb_pieces))

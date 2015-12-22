@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fifiblop <fifiblop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 17:13:46 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/21 21:31:27 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/22 15:48:57 by fifiblop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int					ft_resolve(char **grid, char letter, t_piece *piece, int nb_pieces);
 char				**ft_get_tetri(void);
 int					ft_check_shape(char *str_piece);
 int					ft_check_errors(char *str_piece);
+int					ft_isempty(char *str_pieces);
 int					ft_check_nl(char nl);
 int					ft_check_last_nl(char *str_pieces);
 int					ft_match_pieces(char *str_piece);
@@ -53,6 +54,7 @@ void				ft_putendl(char *str);
 void				ft_putnbr(int n);
 void				ft_putchar(char c);
 
+int					ft_strcmp(char *s1, char *s2);
 int					ft_atoi(const char *str);
 int					ft_strlen(char *str);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);

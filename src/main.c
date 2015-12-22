@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fifiblop <fifiblop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 15:50:53 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/21 22:00:31 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/22 15:50:30 by fifiblop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		main(int ac, char **av)
 	if (ac == 2)
 	{
 		str_pieces = ft_get_pieces(av[1]);
-		if (ft_check_last_nl(str_pieces))
+		if (ft_isempty(str_pieces) || ft_check_last_nl(str_pieces))
 			return (0);
 		nb_pieces = ft_count_pieces(str_pieces);
 		tab = ft_stock_pieces(str_pieces, nb_pieces);
