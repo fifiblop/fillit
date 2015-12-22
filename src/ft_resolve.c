@@ -6,7 +6,7 @@
 /*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 10:52:19 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/22 21:04:54 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/22 21:57:34 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ int		ft_resolve(char **grid, char letter, t_piece *piece, int nb_pieces)
 		x = 0;
 		while (x < size)
 		{
-			
 			if (ft_test_coord(size, x, y, *piece) &&
 				ft_test_piece(grid, x, y, *piece))
 			{
@@ -90,11 +89,11 @@ int		ft_resolve(char **grid, char letter, t_piece *piece, int nb_pieces)
 				grid[piece->b3.y + y][piece->b3.x + x] = letter;
 				grid[piece->b4.y + y][piece->b4.x + x] = letter;
 				if (piece->id == nb_pieces)
-				 	return (1);
+					return (1);
 				if (ft_resolve(grid, letter + 1, piece + 1, nb_pieces))
 					return (1);
 				else
-					ft_rm_piece(grid, x, y, *piece);	
+					ft_rm_piece(grid, x, y, *piece);
 			}
 			x++;
 		}
@@ -103,7 +102,7 @@ int		ft_resolve(char **grid, char letter, t_piece *piece, int nb_pieces)
 	return (0);
 }
 
-char	**ft_all(t_piece *pieces, int	nb_pieces)
+char	**ft_all(t_piece *pieces, int nb_pieces)
 {
 	char	letter;
 	char	**grid;
@@ -112,7 +111,6 @@ char	**ft_all(t_piece *pieces, int	nb_pieces)
 	letter = 'A';
 	size = 6;
 	grid = ft_make_grid(size);
-	// ft_resolve(grid, letter, pieces, nb_pieces);
 	while (ft_resolve(grid, letter, pieces, nb_pieces) != 1)
 		grid = ft_make_grid(++size);
 	ft_print_grid(grid);
