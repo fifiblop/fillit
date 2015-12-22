@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_resolve.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fifiblop <fifiblop@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 10:52:19 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/22 15:51:27 by fifiblop         ###   ########.fr       */
+/*   Updated: 2015/12/22 17:50:45 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,15 @@ int		ft_resolve(char **grid, char letter, t_piece *piece, int nb_pieces)
 		y = 0;
 		while (y < size)
 		{
+			if (piece->id == 2)
+			{
+				ft_putnbr(ft_test_piece(grid, x, y, *piece));
+				ft_putstr(" x : ");
+				ft_putnbr(y);
+				ft_putstr(", y : ");
+				ft_putnbr(x);
+				ft_putchar('\n');
+			}
 			if (ft_test_coord(size, x, y, *piece) &&
 				ft_test_piece(grid, x, y, *piece))
 			{
@@ -88,6 +97,8 @@ int		ft_resolve(char **grid, char letter, t_piece *piece, int nb_pieces)
 				grid[piece->b2.y + y][piece->b2.x + x] = letter;
 				grid[piece->b3.y + y][piece->b3.x + x] = letter;
 				grid[piece->b4.y + y][piece->b4.x + x] = letter;
+				ft_print_grid(grid);
+				ft_putchar('\n');
 				if (piece->id == nb_pieces)
 					return (1);	
 				if (ft_resolve(grid, letter + 1, piece + 1, nb_pieces))
@@ -109,10 +120,11 @@ char	**ft_all(t_piece *pieces, int	nb_pieces)
 	int		size;
 
 	letter = 'A';
-	size = 2;
+	size = 6;
 	grid = ft_make_grid(size);
-	while (ft_resolve(grid, letter, pieces, nb_pieces) != 1)
-		grid = ft_make_grid(++size);
+	ft_resolve(grid, letter, pieces, nb_pieces);
+	// while (ft_resolve(grid, letter, pieces, nb_pieces) != 1)
+		// grid = ft_make_grid(++size);
 	ft_print_grid(grid);
 	return (grid);
 }
