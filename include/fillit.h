@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fifiblop <fifiblop@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 17:13:46 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/22 15:48:57 by fifiblop         ###   ########.fr       */
+/*   Updated: 2015/12/23 14:24:33 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int					ft_count_pieces(char *str_pieces);
 int					ft_get_pattern(char *str_piece);
 int					ft_get_gridsize(char **grid);
 void				ft_print_grid(char **tab);
+int					ft_match_invalid(char *str_piece);
 
 void				ft_putstr(char *str);
 void				ft_putendl(char *str);

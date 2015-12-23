@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_match_pieces.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdelefos <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 10:02:24 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/16 17:33:56 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/23 14:20:23 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	**ft_get_tetri(void)
 	return (tetri);
 }
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+int		ft_strncmp2(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
 	size_t	j;
@@ -62,6 +62,13 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 	return (0);
 }
 
+int		ft_strnequ2(char const *s1, char const *s2, size_t n)
+{
+	if (ft_strncmp2(s1, s2, n) == 0)
+		return (1);
+	return (0);
+}
+
 int		ft_get_pattern(char *str_piece)
 {
 	int		j;
@@ -79,7 +86,7 @@ int		ft_get_pattern(char *str_piece)
 	while (j < 19)
 	{
 		size = ft_strlen(tetri[j]);
-		if (ft_strnequ(str, tetri[j], size) == 1)
+		if (ft_strnequ2(str, tetri[j], size) == 1)
 			found = j;
 		j++;
 	}
@@ -103,7 +110,7 @@ int		ft_match_pieces(char *str_piece)
 	while (j < 19)
 	{
 		size = ft_strlen(tetri[j]);
-		if (ft_strnequ(str, tetri[j], size) == 1)
+		if (ft_strnequ2(str, tetri[j], size) == 1)
 			found = 0;
 		j++;
 	}

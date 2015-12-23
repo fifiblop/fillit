@@ -6,7 +6,7 @@
 /*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 19:07:07 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/23 12:09:23 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/23 14:49:55 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		ft_isempty(char *str_pieces)
 	if (ft_strcmp(str_pieces, "") == 0)
 	{
 		ft_putendl("error");
-		exit (1);
+		exit(1);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 11:04:32 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/23 12:36:49 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/23 14:50:58 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int		ft_check_nl(char nl)
 	if (nl != '\n')
 	{
 		ft_putendl("error");
-		exit (1);
+		exit(1);
 	}
 	return (0);
 }
@@ -65,7 +65,7 @@ int		ft_check_last_nl(char *str_pieces)
 	if (str_pieces[size] == '\n' && str_pieces[size - 1] == '\n')
 	{
 		ft_putendl("error");
-		exit (1);
+		exit(1);
 	}
 	return (0);
 }
@@ -73,10 +73,10 @@ int		ft_check_last_nl(char *str_pieces)
 int		ft_check_errors(char *str_piece)
 {
 	if (ft_check_shape(str_piece) || ft_check_nb_hash(str_piece) ||
-		ft_match_pieces(str_piece))
+		ft_match_invalid(str_piece) || ft_match_pieces(str_piece))
 	{
 		ft_putendl("error");
-		exit (1);
+		exit(1);
 	}
 	return (0);
 }
