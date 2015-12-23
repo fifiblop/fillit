@@ -6,7 +6,7 @@
 /*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 10:52:19 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/22 21:57:34 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/23 12:31:01 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,10 +109,9 @@ char	**ft_all(t_piece *pieces, int nb_pieces)
 	int		size;
 
 	letter = 'A';
-	size = 6;
+	size = 2;
 	grid = ft_make_grid(size);
 	while (ft_resolve(grid, letter, pieces, nb_pieces) != 1)
 		grid = ft_make_grid(++size);
-	ft_print_grid(grid);
 	return (grid);
 }

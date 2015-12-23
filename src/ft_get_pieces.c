@@ -3,17 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_pieces.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdelefos <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 19:07:07 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/15 11:17:53 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/23 12:09:23 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "fillit.h"
 
-char		*ft_get_pieces(char *filename)
+int		ft_isempty(char *str_pieces)
+{
+	if (ft_strcmp(str_pieces, "") == 0)
+	{
+		ft_putendl("error");
+		exit (1);
+	}
+	return (0);
+}
+
+char	*ft_get_pieces(char *filename)
 {
 	int		fd;
 	int		ret;

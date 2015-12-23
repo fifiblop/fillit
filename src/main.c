@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fifiblop <fifiblop@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 15:50:53 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/22 15:50:30 by fifiblop         ###   ########.fr       */
+/*   Updated: 2015/12/23 12:37:14 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		main(int ac, char **av)
 		nb_pieces = ft_count_pieces(str_pieces);
 		tab = ft_stock_pieces(str_pieces, nb_pieces);
 		grid = ft_all(tab, nb_pieces);
+		ft_print_grid(grid);
 	}
 	else
 		ft_putendl("error");
