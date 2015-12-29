@@ -6,7 +6,7 @@
 /*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 19:07:37 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/21 21:30:16 by pdelefos         ###   ########.fr       */
+/*   Updated: 2015/12/29 15:37:56 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ char		**ft_get_tetri2(void)
 {
 	char	**tetri;
 
-	tetri = (char**)malloc(sizeof(char*) * 19);
+	if (!(tetri = (char**)malloc(sizeof(char*) * 19)))
+		return (NULL);
 	tetri[0] = "00102021";
 	tetri[1] = "10111202";
 	tetri[2] = "00011121";
