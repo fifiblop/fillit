@@ -5,38 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/17 10:52:19 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/23 12:31:01 by pdelefos         ###   ########.fr       */
+/*   Created: 2015/12/29 15:19:48 by pdelefos          #+#    #+#             */
+/*   Updated: 2015/12/29 15:20:34 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "fillit.h"
-
-char	**ft_make_grid(int size)
-{
-	char	**tab;
-	int		i;
-	int		j;
-
-	tab = (char**)malloc(sizeof(char*) * size);
-	i = 0;
-	while (i < size)
-	{
-		tab[i] = (char*)malloc(sizeof(char) * (size + 1));
-		j = 0;
-		while (j < size)
-			tab[i][j++] = '.';
-		tab[i][j] = '\0';
-		i++;
-	}
-	return (tab);
-}
-
-int		ft_get_gridsize(char **grid)
-{
-	return (ft_strlen(grid[0]));
-}
 
 int		ft_test_piece(char **grid, int x, int y, t_piece piece)
 {
@@ -60,6 +34,14 @@ int		ft_test_coord(int size, int x, int y, t_piece piece)
 		return (0);
 }
 
+void	ft_put_piece(char **grid, int xy[2], t_piece piece, char letter)
+{
+	grid[piece.b1.y + xy[1]][piece.b1.x + xy[0]] = letter;
+	grid[piece.b2.y + xy[1]][piece.b2.x + xy[0]] = letter;
+	grid[piece.b3.y + xy[1]][piece.b3.x + xy[0]] = letter;
+	grid[piece.b4.y + xy[1]][piece.b4.x + xy[0]] = letter;
+}
+
 void	ft_rm_piece(char **grid, int x, int y, t_piece piece)
 {
 	grid[piece.b1.y + y][piece.b1.x + x] = '.';
@@ -68,50 +50,32 @@ void	ft_rm_piece(char **grid, int x, int y, t_piece piece)
 	grid[piece.b4.y + y][piece.b4.x + x] = '.';
 }
 
-int		ft_resolve(char **grid, char letter, t_piece *piece, int nb_pieces)
+int		ft_resolve(char **grid, char let, t_piece *piece, int nb_p)
 {
 	int		size;
-	int		x;
-	int		y;
+	int		xy[2];
 
 	size = ft_get_gridsize(grid);
-	y = 0;
-	while (y < size)
+	xy[1] = 0;
+	while (xy[1] < size)
 	{
-		x = 0;
-		while (x < size)
+		xy[0] = 0;
+		while (xy[0] < size)
 		{
-			if (ft_test_coord(size, x, y, *piece) &&
-				ft_test_piece(grid, x, y, *piece))
+			if (ft_test_coord(size, xy[0], xy[1], *piece) &&
+				ft_test_piece(grid, xy[0], xy[1], *piece))
 			{
-				grid[piece->b1.y + y][piece->b1.x + x] = letter;
-				grid[piece->b2.y + y][piece->b2.x + x] = letter;
-				grid[piece->b3.y + y][piece->b3.x + x] = letter;
-				grid[piece->b4.y + y][piece->b4.x + x] = letter;
-				if (piece->id == nb_pieces)
+				ft_put_piece(grid, xy, *piece, let);
+				if (piece->id == nb_p)
 					return (1);
-				if (ft_resolve(grid, letter + 1, piece + 1, nb_pieces))
+				if (ft_resolve(grid, let + 1, piece + 1, nb_p))
 					return (1);
 				else
-					ft_rm_piece(grid, x, y, *piece);
+					ft_rm_piece(grid, xy[0], xy[1], *piece);
 			}
-			x++;
+			xy[0] += 1;
 		}
-		y++;
+		xy[1] += 1;
 	}
 	return (0);
-}
-
-char	**ft_all(t_piece *pieces, int nb_pieces)
-{
-	char	letter;
-	char	**grid;
-	int		size;
-
-	letter = 'A';
-	size = 2;
-	grid = ft_make_grid(size);
-	while (ft_resolve(grid, letter, pieces, nb_pieces) != 1)
-		grid = ft_make_grid(++size);
-	return (grid);
 }

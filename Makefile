@@ -6,7 +6,7 @@
 #    By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/11 14:51:11 by pdelefos          #+#    #+#              #
-#    Updated: 2015/12/23 14:26:17 by pdelefos         ###   ########.fr        #
+#    Updated: 2015/12/29 15:21:06 by pdelefos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,10 @@ SRC_NAME = 	main.c \
 			ft_get_pieces.c \
 			ft_check_errors.c \
 			ft_match_pieces.c \
+		   	ft_match_invalid.c \
 		   	ft_stock_pieces.c \
 		   	ft_resolve.c \
-		   	ft_match_invalid.c
+		   	ft_do_resolve.c
 
 OBJ_PATH = ./obj/
 OBJ_NAME = $(SRC_NAME:.c=.o)
