@@ -6,7 +6,7 @@
 /*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 15:19:48 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/29 15:20:34 by pdelefos         ###   ########.fr       */
+/*   Updated: 2016/01/12 10:30:09 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,16 @@ void	ft_rm_piece(char **grid, int x, int y, t_piece piece)
 
 int		ft_resolve(char **grid, char let, t_piece *piece, int nb_p)
 {
-	int		size;
-	int		xy[2];
+	int		xy[3];
 
-	size = ft_get_gridsize(grid);
+	xy[2] = ft_get_gridsize(grid);
 	xy[1] = 0;
-	while (xy[1] < size)
+	while (xy[1] < xy[2])
 	{
 		xy[0] = 0;
-		while (xy[0] < size)
+		while (xy[0] < xy[2])
 		{
-			if (ft_test_coord(size, xy[0], xy[1], *piece) &&
+			if (ft_test_coord(xy[2], xy[0], xy[1], *piece) &&
 				ft_test_piece(grid, xy[0], xy[1], *piece))
 			{
 				ft_put_piece(grid, xy, *piece, let);
