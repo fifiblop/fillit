@@ -6,7 +6,7 @@
 /*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/23 13:49:24 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/29 16:03:05 by pdelefos         ###   ########.fr       */
+/*   Updated: 2016/01/22 16:31:35 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	**ft_get_invalid(void)
 {
 	char	**invalid;
 
-	if (!(invalid = (char**)malloc(sizeof(char*) * 17)))
+	if (!(invalid = (char**)malloc(sizeof(char*) * 20)))
 		return (NULL);
 	invalid[0] = "###\n#";
 	invalid[1] = "##\n##";
@@ -36,6 +36,9 @@ char	**ft_get_invalid(void)
 	invalid[14] = "#.##\n#";
 	invalid[15] = "#.#\n##";
 	invalid[16] = "#\n#..#\n#";
+	invalid[17] = "#\n#.##";
+	invalid[18] = "#\n...#\n#...#";
+	invalid[19] = "##.#\n#";
 	return (invalid);
 }
 
@@ -51,7 +54,7 @@ int		ft_match_invalid(char *str_piece)
 	while (*str != '#')
 		str++;
 	j = 0;
-	while (j < 17)
+	while (j < 20)
 	{
 		size = ft_strlen(invalid[j]);
 		if (ft_strnequ(str, invalid[j], size) == 1)
