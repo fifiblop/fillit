@@ -6,7 +6,7 @@
 /*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 19:07:07 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/29 15:06:20 by pdelefos         ###   ########.fr       */
+/*   Updated: 2016/01/26 12:53:34 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 int		ft_check_errors(char *str_piece)
 {
-	if (ft_check_shape(str_piece) || ft_check_nb_hash(str_piece) ||
-		ft_match_invalid(str_piece) || ft_match_pieces(str_piece))
+	if (ft_check_shape(str_piece) || ft_check_dothash(str_piece) ||
+		ft_check_nb_hash(str_piece) || ft_match_invalid(str_piece) ||
+		ft_match_invalid2(str_piece) || ft_match_pieces(str_piece))
 	{
 		ft_putendl("error");
 		exit(1);

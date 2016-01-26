@@ -6,7 +6,7 @@
 /*   By: pdelefos <pdelefos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 17:13:46 by pdelefos          #+#    #+#             */
-/*   Updated: 2015/12/29 15:13:38 by pdelefos         ###   ########.fr       */
+/*   Updated: 2016/01/26 12:46:19 by pdelefos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ char				**ft_get_tetri(void);
 int					ft_resolve(char **grid, char let, t_piece *piece, int nb_p);
 int					ft_check_shape(char *str_piece);
 int					ft_check_nb_hash(char *str_piece);
+int					ft_check_dothash(char *str_piece);
 int					ft_check_errors(char *str_piece);
 int					ft_isempty(char *str_pieces);
 int					ft_check_nl(char nl);
@@ -49,6 +50,7 @@ int					ft_count_pieces(char *str_pieces);
 int					ft_get_pattern(char *str_piece);
 int					ft_get_gridsize(char **grid);
 int					ft_match_invalid(char *str_piece);
+int					ft_match_invalid2(char *str_piece);
 void				ft_print_grid(char **tab);
 
 void				ft_putstr(char *str);
