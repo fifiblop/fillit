@@ -8,6 +8,8 @@ Le programme prend en paramètre un fichier décrivant la liste des Tetriminos 
 
 ![alt text](ressources/map.png "map")
 
+Chaque pièce se voit attribué une lettre
+
 ##compiler le programme
 dans le dossier du projet :
 ```
